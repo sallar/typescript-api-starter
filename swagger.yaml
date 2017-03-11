@@ -1,0 +1,69 @@
+swagger: '2.0'
+
+################################################################################
+#                              API Information                                 #
+################################################################################
+
+info:
+  title: Test API
+  version: 1.0.0
+basePath: /v1
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+################################################################################
+#                                  Security                                    #
+################################################################################
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+################################################################################
+#                                           Paths                              #
+################################################################################
+paths:
+  '/test':
+    get:
+      summary: List all test stringd
+      security:
+        - Bearer: []
+      tags:
+        - strings
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/StringList'
+
+################################################################################
+#                                  DEFINITIONS                                 #
+################################################################################
+definitions:
+  StringList:
+    type: array
+    items:
+      $ref: '#/definitions/String'
+  String:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+
+################################################################################
+#                                           TAGS                               #
+################################################################################
+tags:
+  - name: strings
+    description: Strings

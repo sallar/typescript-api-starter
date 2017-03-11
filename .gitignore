@@ -1,0 +1,12 @@
+*~
+*.swp
+*.iml
+.idea
+dist
+node_modules
+.DS_Store
+npm-debug.log
+.env
+newrelic_agent.log
+.npmrc
+ecosystem.json

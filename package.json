@@ -1,0 +1,41 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "env-cmd .env concurrently \"npm run watch:build\" \"npm run watch:server\"",
+    "watch:server": "nodemon --watch dist --delay 2 dist/bootstrap.js",
+    "watch:build": "tsc -w",
+    "build": "tsc",
+    "start:production": "node dist/bootstrap.js",
+    "lint": "tslint -c tslint.json './src/**/*.ts'"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cors": "^2.8.1",
+    "debug": "^2.6.1",
+    "dotenv": "^4.0.0",
+    "env-cmd": "^5.0.0",
+    "express": "^4.14.1",
+    "feathers-errors": "^2.6.1",
+    "js-yaml": "^3.8.2",
+    "morgan": "^1.8.1",
+    "ramda": "^0.23.0",
+    "swagger-ui": "^2.2.10",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^0.0.34",
+    "@types/cors": "^2.8.0",
+    "@types/express": "^4.0.35",
+    "@types/js-yaml": "^3.5.29",
+    "@types/ramda": "^0.0.3",
+    "@types/winston": "^2.2.0",
+    "concurrently": "^3.3.0",
+    "nodemon": "^1.11.0",
+    "tslint": "^4.4.2",
+    "typescript": "^2.2.1",
+    "typings": "^2.1.0"
+  }
+}
